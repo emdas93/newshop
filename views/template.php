@@ -1,48 +1,53 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8"/>
-    <!-- 각 action에 따른 views폴더내의 view파일들에서 설정하여 보내줌-->
-    <title>
-        <?php if (isset($title)): print $this->escape($this).'-'; endif; ?>
-        Weblog
-    </title>
-    <!-- { endfor; endwhile; endswitch; endforeach;} -->
-    <link rel="stylesheet"
-          type="text/css"
-          href="/css/style.css"/>
-</head>
-<body>
-<div id="header">
-    <h1><a href="<?php print $base_url; ?>/">
-    <!--$request, $base_url,$session==> Controller에서 View 객체 생성시 전달해줌 -->
-    --- Weblog --- Weblog --- Weblog --- Weblog --- Weblog ---
-    </a></h1>
-</div>
-
-<div id="nav">
-    <p>
-    <?php if ($session->isAuthenticated()): ?>
-        <a href="<?php print $base_url; ?>/">
-            Top Page
-        </a>
-        <a href="<?php print $base_url; ?>/account">
-            계정
-        </a>
-    <?php else: ?>
-        <a href="<?php print $base_url; ?>/account/signin">
-            로그인
-        </a>
-        <a href="<?php print $base_url; ?>/account/signup">
-            계정 등록(회원가입)
-        </a>
-    <?php endif; ?>
-    </p>
-</div>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/master.css">
+    <script src="public/js/jQuery.js"></script>
+    <script src="public/js/master.js"></script>
+    <script src="public/js/config.js"></script>
+    <title>SHOP</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="loginDiv">
+          <?php if(isset($_SESSION['user'])){ ?>
+              <span><?php echo $_SESSION['user']->user_name; ?>님 환영합니다. </span>
+              <span><a href="<?php echo URL?>account/logout">로그아웃</a></span>
+              <span><a href="<?php echo URL?>account/userinfo">정보보기</a></span>
+          <?php }else{ ?>
+              <span><a href="<?php echo URL?>account/login">로그인</a></span>
+              <span><a href="<?php echo URL?>account/register">회원가입</a></span>
+          <?php } ?>
+        </div>
+        <div class="titleDiv">
+            <a href="<?php $baseUrl ?>"><img src="public/img/title.png" alt=""></a>
+        </div>
+        <div class="navDiv">
+          <nav>
+            <span><a href="<?php echo URL?>item/index">보충식품</a></span>
+            <span><a href="<?php echo URL?>item/index">운동기구</a></span>
+            <span><a href="<?php echo URL?>item/index">스포츠용품</a></span>
+            <span><a href="<?php echo URL?>board/index">Q&amp;A</a></span>
+            <span><a href="<?php echo URL?>item/write">제품등록</a></span>
+          </nav>
+        </div>
+      </header>
+      <div>
+        <section>
+          <div>
 
 <div id="main">
     <?php print $_content; ?>
-    <!-- $_content: View 객체의 render()메서드에서 전달해줌 -->
-</div>
-</body>
-</html>
+  </div>
+  </section>
+  <div class="footer_DIV">
+  <footer>
+
+  </footer>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>

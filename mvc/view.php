@@ -1,12 +1,13 @@
 <?php
 
 	class View{
-		protected $_bashUrl; //view 파일의 폴더 경로 정보
+		protected $_baseUrl; //view 파일의 폴더 경로 정보
 		protected $_initialValue; // 컨트롤러 render()에서의 전달정보 (리퀘스트,리퀘스트의 Base Url, Session)
 		protected $_passValues = array(); // View에 전달할 정보
 
-		public function __construct($bashUrl,$initialValue=array()){
-			$this->_bashUrl = $bashUrl;
+
+		public function __construct($baseUrl,$initialValue=array()){
+			$this->_baseUrl = $baseUrl;
 			$this->_initialValue = $initialValue;
 		}
 
@@ -18,7 +19,7 @@
 		//뷰파일을 읽어 들이는 메서드
 		//뷰파일명,뷰파일에전달하는정보(액션메서드로부터 전달받은),레이아웃 페이지
 		public function render($filename,$parameters=array(),$template=false){
-			$view = $this->_bashUrl.'/'.$filename.'.php';
+			$view = $this->_baseUrl.'/'.$filename.'.php';
 			extract(array_merge($this->_initialValue,$parameters));//뷰파일 디렉토리 경로+리퀘스트객체+세션객체,액션메서드로부터 받은 배열 정보
 						//extract : 연상배열의 키 - 값을 변수- 값으로 선언해줌
 
@@ -44,7 +45,7 @@
 		}
 
 		//HTML Escape를 수행
-		//스크립트를 이용한 해킹 방지 
+		//스크립트를 이용한 해킹 방지
 		public function escape($string){
 			//특수문자를 HTML 엔티티로 변경
 			//ENT_QUOTES 설정되면 ':&#039;값'

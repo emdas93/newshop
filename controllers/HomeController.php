@@ -1,6 +1,6 @@
 <?php
-class AccountController extends Controller{
-  function loginAction(){
+class HomeController extends Controller{
+  function indexAction(){
     $index_view = $this->render();
     return $index_view;
   }

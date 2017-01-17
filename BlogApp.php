@@ -32,21 +32,50 @@ class BlogApp extends AppBase {
   //8)blog      - user      - /user/:user_name            - 사용자 작성글 일람
   //9)blog      - specific  - /user/:user_name/status/:id - 작성글의 상세보기
 
+  // 1)  home    - index       - /
+  // 2)  account - index       - /account
+  // 3)  account - buyed       - /account/:action
+  // 4)  account - login       - /account/:action
+  // 5)  account - register    - /account/:action
+  // 6)  account - userinfo    - /account/:action
+
+  // 7)  board   - index       - /board
+  // 8)  board   - update      - /board/:action
+  // 9)  board   - view        - /board/:action
+  // 10) board   - write       - /board/:action
+
+  // 11) item    - index       - /item
+  // 12) item    - view        - /item/:action
+  // 13) item    - buyView     - /item/:action
+  // 14) item    - write       - /item/:action
 
   //Routiong 정의를 반환
   protected function getRouteDefinition() {
     return array(
 
-      //AccountController클래스 관련 Routing
-      '/account'          => array('controller' => 'account', 'action' => 'index'),
-      '/account/:action'  => array('controller' => 'account'),
-      '/follow'           => array('controller' => 'account', 'action' => 'follow'),
+      // HomeController 클래스 관련 Routing
+      '/'                           => array('controller' => 'home', 'action' => 'index'),
 
-      //BlogController 클래스 관련 Routing
-      '/'                           => array('controller' => 'blog', 'action' => 'index'),
-      '/status/post'                => array('controller' => 'blog', 'action' => 'post'),
-      '/user/:user_name'            => array('controller' => 'blog', 'action' => 'user'),
-      '/user/:user_name/status/:id' => array('controller' => 'blog', 'action' => 'specific')
+      // AccountController 클래스 관련 Routing
+
+      '/account'                    => array('controller' => 'account', 'action' => 'index'),
+      '/account/:action'            => array('controller' => 'account', 'action' => 'buyed'),
+      '/account/:action'            => array('controller' => 'account', 'action' => 'login'),
+      '/account/:action'            => array('controller' => 'account', 'action' => 'register'),
+      '/account/:action'            => array('controller' => 'account', 'action' => 'userinfo'),
+      '/account/:action'            => array('controller' => 'account', 'action' => 'logout'),
+
+      // BoardController 클래스 관련 Routing
+      '/board'                      => array('controller' => 'board', 'action' => 'index'),
+      '/board/:action'              => array('controller' => 'board', 'action' => 'update'),
+      '/board/:action'              => array('controller' => 'board', 'action' => 'view'),
+      '/board/:action'              => array('controller' => 'board', 'action' => 'write'),
+
+      // ItemController 클래스 관련 Routing
+      '/item'                      => array('controller' => 'item', 'action' => 'index'),
+      '/item/:action'              => array('controller' => 'item', 'action' => 'view'),
+      '/item/:action'              => array('controller' => 'item', 'action' => 'buyView'),
+      '/item/:action'              => array('controller' => 'item', 'action' => 'write')
 
     );
 
