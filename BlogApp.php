@@ -11,7 +11,6 @@ class BlogApp extends AppBase {
       'user'      => 'root',                                            //DB사용자명
       'password'  => 'qweqwe12'                                             //DB사용자의 패스워드
     ));
-    echo("<script>alert {$a};</script>");
   }//doDbConnection - function
 
   //Root Directory 경로를 반환
@@ -54,28 +53,20 @@ class BlogApp extends AppBase {
     return array(
 
       // HomeController 클래스 관련 Routing
-      '/'                           => array('controller' => 'home', 'action' => 'index'),
+      '/'                             => array('controller' => 'home', 'action' => 'index'),
 
       // AccountController 클래스 관련 Routing
-
-      '/account'                    => array('controller' => 'account', 'action' => 'index'),
-      '/account/:action'            => array('controller' => 'account', 'action' => 'buyed'),
-      '/account/:action'            => array('controller' => 'account', 'action' => 'login'),
-      '/account/:action'            => array('controller' => 'account', 'action' => 'register'),
-      '/account/:action'            => array('controller' => 'account', 'action' => 'userinfo'),
-      '/account/:action'            => array('controller' => 'account', 'action' => 'logout'),
-
+      '/account/:action'              => array('controller' => 'account', 'action' => 'login'),
+      '/account/:action/:id'          => array('controller' => 'account', 'action' => 'idChk', 'id' => 's'),
       // BoardController 클래스 관련 Routing
-      '/board'                      => array('controller' => 'board', 'action' => 'index'),
-      '/board/:action'              => array('controller' => 'board', 'action' => 'update'),
-      '/board/:action'              => array('controller' => 'board', 'action' => 'view'),
-      '/board/:action'              => array('controller' => 'board', 'action' => 'write'),
+      '/board/:action/:pageNo'        => array('controller' => 'board', 'action' => '', 'pageNo' => ''),
+      '/board/:action'                => array('controller' => 'board', 'action' => ''),
+
 
       // ItemController 클래스 관련 Routing
-      '/item'                      => array('controller' => 'item', 'action' => 'index'),
-      '/item/:action'              => array('controller' => 'item', 'action' => 'view'),
-      '/item/:action'              => array('controller' => 'item', 'action' => 'buyView'),
-      '/item/:action'              => array('controller' => 'item', 'action' => 'write')
+      '/item/:action/:pagename'       => array('controller' => 'item', 'action' => 'index'),
+      '/item/:action'                 => array('controller' => 'item', 'action' => 'view'),
+
 
     );
 

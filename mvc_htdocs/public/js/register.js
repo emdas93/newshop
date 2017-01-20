@@ -7,7 +7,8 @@ window.addEventListener('load',function(){
             idChk.innerHTML = "아이디를 입력해주세요.";
         }else{
             $.ajax({
-                url:URL+"helper/idChk/"+inputBoxID.value,
+                type:"GET",
+                url:"http://weblog.localhost/account/idChk/"+inputBoxID.value,
                 success:function(data){
                     if(data==1){
                         var idChk = document.getElementById("idChk");

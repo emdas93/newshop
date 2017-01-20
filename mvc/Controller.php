@@ -45,7 +45,7 @@
     }
     //***httpNotFound()***
     protected function httpNotFound(){
-      throw new FileNotFoundException('FILE NOT FOUND'
+      throw new FileNotFoundException('FILE NOT FOUND '
       .$this->_controller.'/'.$this->_action);
     }
     //***isAuthentication()***
@@ -62,9 +62,8 @@
     }
     //***render()***
     //컨트롤러 서브 클래스의 액션메소드 (OOAction())에서 호출
-    protected function render(
-      $param = array(),$viewFile = null, $template = null
-    ){//$param : 템플릿에 전달하는 변수 (연상배열)
+    protected function render($param = array(),$viewFile = null, $template = null){
+      //$param : 템플릿에 전달하는 변수 (연상배열)
       //$viewFile : 뷰파일명(null이면 액션명으로 대체)
       //$template : 레이아웃 파일명
       $info = array(

@@ -30,14 +30,14 @@
 
 		// ***getAllRecord()***
 		public function getAllRecord($sql,$parameter = array()){
-			echo "sql : ".$sql."<br>";
-			$all_rec = $this->execute($sql,$parameter)->fetchAll(PDO::FETCH_ASSOC);
+			// echo "sql : ".$sql."<br>";
+			$all_rec = $this->execute($sql,$parameter)->fetchAll(PDO::FETCH_OBJ);
 			return $all_rec;
 		}
 
 		// ***getRecord()***
 		public function getRecord($sql,$parameter = array()){
-			$rec = $this->execute($sql,$parameter)->fetch(PDO::FETCH_ASSOC);
+			$rec = $this->execute($sql,$parameter)->fetch(PDO::FETCH_OBJ);
 			return $rec;
 		}
 	}

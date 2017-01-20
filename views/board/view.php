@@ -13,12 +13,12 @@
     <span>첨부파일</span>
         <div>
             <?php for($i=0;$i<count($fileURL);++$i){; ?>
-                [<?php echo $i+1?>] <a href="<?php echo URL."QA/download/".$row->b_no."/".$i; ?>"><span><?php echo basename($fileURL[$i])." " ?></a></span><br>
+                [<?php echo $i+1?>] <a href="<?php echo URL."board/download/".$row->b_no."/".$i; ?>"><span><?php echo basename($fileURL[$i])." " ?></a></span><br>
             <?php } ?>
         </div>
     </a>
 </div>
 <div class="contentMenu">
-    <span><a href="<?php echo URL."QA/updateView/".$row->b_no; ?>">글수정</a></span>
-    <span><a href="<?php echo URL."QA/index/1"; ?>">목록으로</a></span>
+    <span><a href="<?php echo URL."board/updateView/".$row->b_no; ?>">글수정</a></span>
+    <span><a href="<?php echo URL."board/index/1"; ?>">목록으로</a></span>
 </div>

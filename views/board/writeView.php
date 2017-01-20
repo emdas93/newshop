@@ -2,7 +2,7 @@
     <h3>글쓰기</h3>
 </div>
 <div>
-    <form action="<?php echo URL."QA/insert" ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo URL."board/write" ?>" method="POST" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>제목</td>
@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td>작성자</td>
-                <td><input type="text" name="b_writer" value="<?php echo $_SESSION['user']->user_name; ?>" readonly></td>
+                <td><input type="text" name="b_writer" value="<?php echo $user->user_name; ?>" readonly></td>
                 <td>작성날짜</td>
                 <td><input type="text" name="b_date" value="<?php echo $today=Date("y-m-d / h:i:s"); ?>" readonly></td>
             </tr>

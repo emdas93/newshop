@@ -115,6 +115,8 @@ public function routeConverter($routedef){
       if(preg_match('#^'.$pattern.'$#',$path,$p_match)){
         //$pattern을 반드시 만족하도록 ^시작종료$
         $par = array_merge($par, $p_match);
+
+
         return $par;
       }
     }

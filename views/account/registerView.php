@@ -3,7 +3,7 @@
     <h3>회원가입</h3>
 </div>
 <div class="registerForm">
-    <form action="<?php echo URL."UserMG/insertUser" ?>" method="POST" name="loginForm">
+    <form action="<?php echo URL."account/register" ?>" method="POST" name="loginForm">
         <table>
             <tr>
                 <td>아이디</td>

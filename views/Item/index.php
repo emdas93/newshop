@@ -1,5 +1,5 @@
 <div class = "subTitle">
-    <h3>제품</h3>
+    <h3><?php echo $subTitle ?></h3>
 </div>
 <?php foreach($list as $row){ ?>
     <div class = "itemBox">

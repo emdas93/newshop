@@ -2,7 +2,7 @@
     <h3>글수정</h3>
 </div>
 <div>
-    <form action="<?php echo URL."QA/update/".$row->b_no; ?>" method="POST">
+    <form action="<?php echo URL."board/update/".$row->b_no; ?>" method="POST">
         <table>
             <tr>
                 <td>제목</td>
@@ -24,7 +24,6 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <input type="hidden" name="b_no" value="<?php echo $row->b_no; ?>">
                     <input type="submit" name="" value="작성">
                     <input type="reset" name="" value="다시적기">
                 </td>

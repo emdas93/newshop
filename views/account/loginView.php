@@ -2,7 +2,7 @@
     <h3>로그인</h3>
 </div>
 <div class = "loginForm">
-    <form action="<?php echo URL."UserMG/loginUser" ?>" method="POST">
+    <form action="<?php echo URL."account/login" ?>" method="POST">
         <table>
             <tr>
                 <td>아이디</td>
