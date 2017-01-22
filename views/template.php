@@ -12,8 +12,8 @@
     <div class="wrap">
       <header>
         <div class="loginDiv">
-          <?php if(isset($_SESSION['user']->user_name)){ ?>
-              <span><?php echo $_SESSION['user']->user_name; ?>님 환영합니다. </span>
+          <?php if($session->isAuthenticated()){ ?>
+              <span><?php echo $session->get("user")->user_name; ?>님 환영합니다. </span>
               <span><a href="<?php echo URL?>account/logout">로그아웃</a></span>
               <span><a href="<?php echo URL?>account/userinfo">정보보기</a></span>
           <?php }else{ ?>
@@ -26,11 +26,11 @@
         </div>
         <div class="navDiv">
           <nav>
-            <span><a href="<?php echo URL?>item/index/food">보충식품</a></span>
-            <span><a href="<?php echo URL?>item/index/machine">운동기구</a></span>
-            <span><a href="<?php echo URL?>item/index/sports">스포츠용품</a></span>
+            <span><a href="<?php echo URL?>item/index/food/1">보충식품</a></span>
+            <span><a href="<?php echo URL?>item/index/machine/1">운동기구</a></span>
+            <span><a href="<?php echo URL?>item/index/sports/1">스포츠용품</a></span>
             <span><a href="<?php echo URL?>board/index/1">Q&amp;A</a></span>
-            <span><a href="<?php echo URL?>item/write">제품등록</a></span>
+            <span><a href="<?php echo URL?>item/writeView">제품등록</a></span>
           </nav>
         </div>
       </header>

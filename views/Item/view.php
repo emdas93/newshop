@@ -5,7 +5,7 @@
     <img src="<?php echo URL.$row->item_titleImg; ?>" alt="">
 </div>
 <div class="itemDetail">
-    <form action="<?php echo URL."Item/buyView/".$row->item_no; ?>" method="POST">
+    <form action="<?php echo URL."item/buyView/".$row->item_no; ?>" method="POST">
         <table>
             <tr>
                 <td><span>상품명</span></td>
@@ -29,7 +29,7 @@
 <div class = "itemSubTitle">
     <h3>제품 상세 내용</h3>
 </div>
-<div class="itemContent">
+<div class="item\Content">
     <?php echo $row->item_content; ?>
 </div>
 <div class="itemDetailImg">

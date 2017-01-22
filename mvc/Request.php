@@ -25,6 +25,13 @@ class Request{
     return $param;
   }
 
+  public function getFile($name, $param = null){
+    if(isset($_FILES[$name])){
+      return $_FILES[$name];
+    }
+    return $param;
+  }
+
   //***getHostName(): 호스트이름을 획득 ***
   public function getHostName(){
     if(!empty($_SERVER['HTTP_HOST'])){ // Request Header에 호스트명이 있다면

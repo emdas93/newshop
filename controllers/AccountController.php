@@ -10,16 +10,17 @@ class AccountController extends Controller{
     }
     $user_id = $this->_request->getpost('user_id');
     $user_pw = $this->_request->getPost('user_pw');
-
-    $sql = "SELECT user_id,user_pw FROM user WHERE user_id=:user_id and user_pw=:user_pw";
-
     $user = $this->_connect_model->get('Account')->getUserRecord($user_id);
-
-    if($user_id == $user->user_id && $user_pw == $user->user_pw){
+    if($user == false){
+      $this->redirect('/');
+    }
+    if($user_id == $user->user_id && $user_pw == $user->user_pw && !($user_id == "" || $user_pw == "")){
       $this->_session->set('user',$user);
+      $this->_session->setAuthenticateStaus(true);
       $this->redirect('/');
     }else{
-      $this->_session->set('user',null);
+      $this->_session->setAuthenticateStaus(false);
+      $this->redirect('/');
     }
   }
   function registerViewAction(){
@@ -50,11 +51,15 @@ class AccountController extends Controller{
     }
 
   }
-  function buyedAction(){
-
+  function buyListAction(){
+    $user_id = $this->_session->get('user')->user_id;
+    $list = $this->_connect_model->get('Account')->buyList($user_id);
+    $index_view = $this->render(array('list'=>$list));
+    return $index_view;
   }
   function userinfoAction(){
-
+    $index_view = $this->render();
+    return $index_view;
   }
   function logoutAction(){
     $this->_session->clear();

@@ -39,5 +39,10 @@ class BoardModel extends ExecuteModel{
       ':b_no'       => $b_no
     ));
   }
+  function getFileDir($b_no){
+    $sql = "SELECT b_fileURL FROM qna WHERE b_no = :b_no";
+    $fileDir = $this->getRecord($sql, array(':b_no' => $b_no));
+    return $fileDir;
+  }
 }
 ?>

@@ -60,12 +60,14 @@ class BlogApp extends AppBase {
       '/account/:action/:id'          => array('controller' => 'account', 'action' => 'idChk', 'id' => 's'),
       // BoardController 클래스 관련 Routing
       '/board/:action/:pageNo'        => array('controller' => 'board', 'action' => '', 'pageNo' => ''),
+      '/board/:action/:pageNo/:file'  => array('controller' => 'board', 'action' => '', 'pageNo' => '', 'file' => ''),
       '/board/:action'                => array('controller' => 'board', 'action' => ''),
 
 
       // ItemController 클래스 관련 Routing
-      '/item/:action/:pagename'       => array('controller' => 'item', 'action' => 'index'),
-      '/item/:action'                 => array('controller' => 'item', 'action' => 'view'),
+      '/item/:action'                         => array('controller' => 'item', 'action' => ''),
+      '/item/:action/:itemNo'                 => array('controller' => 'item', 'action' => '', 'itemNo' => ''),
+      '/item/:action/:pagename/:pageNo'       => array('controller' => 'item', 'action' => ''),
 
 
     );

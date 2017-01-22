@@ -2,7 +2,7 @@
     <h3>상품등록</h3>
 </div>
 <div class="itemWriteArea">
-    <form action="<?php echo URL."Item/insert" ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo URL."item/write" ?>" method="POST" enctype="multipart/form-data">
         <table>
             <tr>
                 <td colspan="4">

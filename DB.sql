@@ -1,3 +1,7 @@
+DROP TABLE user;
+DROP TABLE delivery;
+DROP TABLE item_board;
+DROP TABLE qna;
 CREATE TABLE user(
     user_no         int AUTO_INCREMENT,
     user_id         varchar(30),

@@ -4,6 +4,7 @@
 			$sql = "SELECT * FROM user WHERE user_id = :user_id";
 			$userData = $this->getRecord($sql,array(':user_id' => $user_id));
 			return $userData;
+
 		}
 		public function insert($user_id,$user_pw,$user_name,$user_birth,$user_phone,$user_addr,$user_email,$user_gender) {
 	    // $password = password_hash($password, PASSWORD_DEFAULT);
@@ -21,5 +22,10 @@
 	      ':time_stamp' => $now->format('Y-m-d H:i:s')
 	    ));
 		}
+		function buyList($user_id){
+	    $sql = "SELECT * FROM delivery WHERE user_id = :user_id";
+	    $list = $this->getAllRecord($sql, array('user_id' => $user_id));
+	    return $list;
+	  }
 	}
 ?>
